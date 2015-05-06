@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<medicines>
+    <medidcine>
+        <name>Tramodol</name>
+        <pharm>Darnitsa</pharm>
+        <group>Vitamines</group>
+        <analogs>
+            <analog>Vicadine</analog>
+            <analog>Methamphitamine</analog>
+        </analogs>
+        <versions>
+            <version>
+                Tablets
+                <companies>
+                    <company>
+                        <certificate>
+                            <number>12345</number>
+                            <expiration-date>2.08.2017</expiration-date>
+                            <registration-company>NASA</registration-company>
+                        </certificate>
+                        <dosage>
+                            <amount>1</amount>
+                            <period>2 weeks</period>
+                        </dosage>
+                        <package>
+                            <type>Box</type>
+                            <items-amount>20</items-amount>
+                            <price>34 UAH</price>
+                        </package>
+                    </company>
+                </companies>
+            </version>
+            <version>
+                Syrup
+                <companies>
+                    <company>
+                        <certificate>
+                            <number>5678</number>
+                            <expiration-date>4.12.2019</expiration-date>
+                            <registration-company>NASA</registration-company>
+                        </certificate>
+                        <dosage>
+                            <amount>50 ml</amount>
+                            <period>1 week</period>
+                        </dosage>
+                        <package>
+                            <type>Bottle</type>
+                            <items-amount>500 ml</items-amount>
+                            <price>56 UAH</price>
+                        </package>
+                    </company>
+                </companies>
+            </version>
+        </versions>
+    </medidcine>
+</medicines>
+

@@ -9,8 +9,7 @@ public class Handler extends DefaultHandler {
     @Override
     public void startDocument() {
     }
-
-
+    
     @Override
     public void endDocument() {
     }

@@ -2,27 +2,31 @@ package Task.Medicine.Version.Company;
 
 
 public class Dosage {
-    private int amount;
-    private int period;
+    private String amount;
+    private String period;
 
-    public Dosage(int amount, int period) {
+    public Dosage() {
+        super();
+    }
+
+    public Dosage(String amount, String period) {
         this.setAmount(amount);
         this.setPeriod(period);
     }
 
-    public int getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
-    public int getPeriod() {
+    public String getPeriod() {
         return period;
     }
 
-    public void setPeriod(int period) {
+    public void setPeriod(String period) {
         this.period = period;
     }
 

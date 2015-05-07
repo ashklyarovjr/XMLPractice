@@ -5,9 +5,7 @@ import Task.Medicine.Version.Company.Company;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Anton_Shkliarov on 5/6/2015.
- */
+
 public class Version {
     String version;
     List<Company> companies;
@@ -35,7 +33,7 @@ public class Version {
 
     @Override
     public String toString() {
-        return "Version: " + getVersion() + '\n' +
+        return "\n" + "Version: " + getVersion() + '\n' +
                 "Companies: " + getCompanies();
     }
 }

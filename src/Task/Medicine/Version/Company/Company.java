@@ -38,7 +38,7 @@ public class Company {
 
     @Override
     public String toString() {
-        return "Company: " + "\n" +
+        return "\n" + "Company: " + "\n" +
                 getCertificate().toString() + "\n" +
                 getDosage().toString() + "\n" +
                 getaPackage().toString();

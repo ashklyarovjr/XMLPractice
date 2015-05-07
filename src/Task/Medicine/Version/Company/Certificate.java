@@ -1,14 +1,16 @@
 package Task.Medicine.Version.Company;
 
-import java.util.Date;
-
 
 public class Certificate {
     private int number;
-    private Date expirationDate;
+    private String expirationDate;
     private String registrationCompany;
 
-    public Certificate(int number, Date expirationDate, String registrationCompany) {
+    public Certificate() {
+        super();
+    }
+
+    public Certificate(int number, String expirationDate, String registrationCompany) {
         this.setNumber(number);
         this.setExpirationDate(expirationDate);
         this.setRegistrationCompany(registrationCompany);
@@ -22,11 +24,11 @@ public class Certificate {
         this.number = number;
     }
 
-    public Date getExpirationDate() {
+    public String getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
     }
 

@@ -1,14 +1,16 @@
 package Task.Medicine.Version.Company;
 
-/**
- * Created by Anton_Shkliarov on 5/6/2015.
- */
+
 public class Package {
     private String type;
-    private int amount;
-    private double price;
+    private String amount;
+    private String price;
 
-    public Package(String type, int amount, double price) {
+    public Package() {
+        super();
+    }
+
+    public Package(String type, String amount, String price) {
         this.setType(type);
         this.setAmount(amount);
         this.setPrice(price);
@@ -22,19 +24,19 @@ public class Package {
         this.type = type;
     }
 
-    public int getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -43,6 +45,6 @@ public class Package {
         return " Package: " + "\n" +
                 "  Type: " + getType() + "\n" +
                 "  Amount: " + getAmount() + "\n" +
-                "  Price: " + getPrice() + " UAH";
+                "  Price: " + getPrice();
     }
 }

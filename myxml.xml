@@ -10,7 +10,7 @@
         </analogs>
         <versions>
             <version>
-                Tablets
+                <vname>Tablets</vname>
                 <companies>
                     <company>
                         <certificate>
@@ -19,19 +19,19 @@
                             <registration-company>NASA</registration-company>
                         </certificate>
                         <dosage>
-                            <amount>1</amount>
+                            <amount>1 tab</amount>
                             <period>2 weeks</period>
                         </dosage>
                         <package>
                             <type>Box</type>
-                            <items-amount>20</items-amount>
+                            <items-amount>20 tabs</items-amount>
                             <price>34 UAH</price>
                         </package>
                     </company>
                 </companies>
             </version>
             <version>
-                Syrup
+                <vname>Syrup</vname>
                 <companies>
                     <company>
                         <certificate>

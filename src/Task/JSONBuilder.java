@@ -13,6 +13,8 @@ import java.util.List;
 
 
 public class JSONBuilder {
+
+    @SuppressWarnings("unchecked call")
     public static JSONArray buildJSON (List<Medicine> list) {
 
         JSONObject jsonMedicine;

@@ -47,33 +47,32 @@ public class JDOMParser {
                 }
 
                 List<Element> versions = node.getChild("versions").getChildren("version");
-                for (int j = 0; j < versions.size(); j++) {
-                    Element node1 = versions.get(i);
+                for (Element element1 : versions ) {
 
-                    String versionName = node1.getChildText("vname");
+
+                    String versionName = element1.getChildText("vname");
 
                     Version version = new Version(versionName);
 
-                    List<Element> companies = node1.getChild("companies").getChildren("company");
-                    for (int k = 0; k < companies.size(); k++) {
+                    List<Element> companies = element1.getChild("companies").getChildren("company");
+                    for (Element element2 : companies) {
 
-                        Element node2 = companies.get(i);
                         Company company;
 
                         Certificate certificate = new Certificate();
 
-                        certificate.setNumber(Integer.parseInt(node2.getChild("certificate").getChildText("number")));
-                        certificate.setExpirationDate(node2.getChild("certificate").getChildText("expiration-date"));
-                        certificate.setRegistrationCompany(node2.getChild("certificate").getChildText("registration-company"));
+                        certificate.setNumber(Integer.parseInt(element2.getChild("certificate").getChildText("number")));
+                        certificate.setExpirationDate(element2.getChild("certificate").getChildText("expiration-date"));
+                        certificate.setRegistrationCompany(element2.getChild("certificate").getChildText("registration-company"));
 
                         Dosage dosage = new Dosage();
-                        dosage.setAmount(node2.getChild("dosage").getChildText("amount"));
-                        dosage.setPeriod(node2.getChild("dosage").getChildText("period"));
+                        dosage.setAmount(element2.getChild("dosage").getChildText("amount"));
+                        dosage.setPeriod(element2.getChild("dosage").getChildText("period"));
 
                         Task.Medicine.Version.Company.Package aPack = new Package();
-                        aPack.setType(node2.getChild("package").getChildText("type"));
-                        aPack.setAmount(node2.getChild("package").getChildText("items-amount"));
-                        aPack.setPrice(node2.getChild("package").getChildText("price"));
+                        aPack.setType(element2.getChild("package").getChildText("type"));
+                        aPack.setAmount(element2.getChild("package").getChildText("items-amount"));
+                        aPack.setPrice(element2.getChild("package").getChildText("price"));
 
 
                         company = new Company(certificate, dosage, aPack);
@@ -82,7 +81,9 @@ public class JDOMParser {
                     }
 
                     medicine.addVersion(version);
+
                 }
+                System.out.println(medicine.toString());
                 medicines.add(medicine);
             }
         } catch (JDOMException | IOException e1) {

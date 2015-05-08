@@ -6,6 +6,10 @@ public class Company {
     private Dosage dosage;
     private Package aPackage;
 
+    public Company() {
+        super();
+    }
+
     public Company(Certificate certificate, Dosage dosage, Package aPackage) {
         this.setCertificate(certificate);
         this.setDosage(dosage);

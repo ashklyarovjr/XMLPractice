@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <medicines>
-    <medidcine>
+    <medicine>
         <name>Tramodol</name>
         <pharm>Darnitsa</pharm>
         <group>Vitamines</group>
@@ -52,6 +52,6 @@
                 </companies>
             </version>
         </versions>
-    </medidcine>
+    </medicine>
 </medicines>
 

@@ -15,7 +15,9 @@ public class SAXParser {
             javax.xml.parsers.SAXParser saxParser = saxParserFactory.newSAXParser();
 
             DefaultHandler handler = new Handler();
+
             saxParser.parse("myxml.xml", handler);
+
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }

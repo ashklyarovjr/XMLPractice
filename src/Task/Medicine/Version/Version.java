@@ -15,6 +15,10 @@ public class Version {
         companies = new ArrayList<>();
     }
 
+    public Version() {
+        companies = new ArrayList<>();
+    }
+
     public String getVersion() {
         return version;
     }

@@ -9,30 +9,27 @@ import Task.Medicine.Version.Version;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.jdom2.Document;
 
 public class JDOMParser {
-    public static void main(String[] args) {
+
+    public static List<Medicine> JDOMParse() {
+        List<Medicine> medicines = new ArrayList<>();
         SAXBuilder saxBuilder = new SAXBuilder();
         File file = new File("myxml.xml");
         try {
 
             Document document = saxBuilder.build(file);
             Element element = document.getRootElement();
-            System.out.println("Main element - " + element);
 
             List listElement = element.getChildren("medicine");
 
-            System.out.println("-------------------------------------");
             Medicine medicine;
             for (int i = 0; i < listElement.size(); i++) {
                 Element node = (Element) listElement.get(i);
@@ -86,15 +83,12 @@ public class JDOMParser {
 
                     medicine.addVersion(version);
                 }
-
-                System.out.println(medicine.toString());
-
-
+                medicines.add(medicine);
             }
         } catch (JDOMException | IOException e1) {
             e1.printStackTrace();
         }
-
+    return medicines;
     }
 }
 

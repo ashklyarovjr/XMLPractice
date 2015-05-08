@@ -3,6 +3,7 @@ package Task.Medicine;
 import Task.Medicine.Version.Version;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -14,16 +15,16 @@ public class Medicine {
     private List<Version> versions;
 
     public Medicine() {
-        setAnalogs(new ArrayList<>());
-        setVersions(new ArrayList<>());
+        setAnalogs(new LinkedList<>());
+        setVersions(new LinkedList<>());
     }
 
     public Medicine(String name, String pharm, String group) {
         this.setName(name);
         this.setPharm(pharm);
         this.setGroup(group);
-        setAnalogs(new ArrayList<>());
-        setVersions(new ArrayList<>());
+        setAnalogs(new LinkedList<>());
+        setVersions(new LinkedList<>());
     }
 
     public String getName() {

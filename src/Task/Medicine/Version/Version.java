@@ -3,6 +3,7 @@ package Task.Medicine.Version;
 import Task.Medicine.Version.Company.Company;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -12,11 +13,11 @@ public class Version {
 
     public Version(String version) {
         this.version = version;
-        companies = new ArrayList<>();
+        companies = new LinkedList<>();
     }
 
     public Version() {
-        companies = new ArrayList<>();
+        companies = new LinkedList<>();
     }
 
     public String getVersion() {

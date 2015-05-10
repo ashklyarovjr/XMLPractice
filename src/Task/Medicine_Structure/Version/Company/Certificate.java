@@ -2,13 +2,15 @@ package Task.Medicine_Structure.Version.Company;
 
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name = "certificate")
 public class Certificate {
-    @XmlElement
+
     private int number;
-    @XmlElement
+
     private String expirationDate;
-    @XmlElement
+
     private String registrationCompany;
 
     public Certificate() {
@@ -25,6 +27,7 @@ public class Certificate {
         return number;
     }
 
+    @XmlElement(name = "number")
     public void setNumber(int number) {
         this.number = number;
     }
@@ -33,6 +36,7 @@ public class Certificate {
         return expirationDate;
     }
 
+    @XmlElement(name = "expiration-date")
     public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
     }
@@ -41,6 +45,7 @@ public class Certificate {
         return registrationCompany;
     }
 
+    @XmlElement(name = "registration-company")
     public void setRegistrationCompany(String registrationCompany) {
         this.registrationCompany = registrationCompany;
     }

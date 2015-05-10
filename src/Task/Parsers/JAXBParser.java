@@ -2,6 +2,7 @@ package Task.Parsers;
 
 
 
+import Task.Medicine_Structure.Medicine;
 import Task.Medicine_Structure.Medicines;
 
 import javax.xml.bind.JAXBContext;

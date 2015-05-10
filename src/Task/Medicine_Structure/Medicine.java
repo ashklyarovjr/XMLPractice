@@ -12,19 +12,19 @@ import java.util.List;
 @XmlRootElement(name = "medicine")
 public class Medicine {
 
-    @XmlElement
+
     private String name;
 
-    @XmlElement
+
     private String pharm;
 
-    @XmlElement
+
     private String group;
 
-    @XmlElementWrapper
+
     private List<String> analogs;
 
-    @XmlElementWrapper
+
     private List<Version> versions;
 
     public Medicine() {
@@ -44,7 +44,7 @@ public class Medicine {
         return name;
     }
 
-
+    @XmlElement(name = "name")
     public void setName(String name) {
         this.name = name;
     }
@@ -53,6 +53,7 @@ public class Medicine {
         return pharm;
     }
 
+    @XmlElement(name = "pharm")
     public void setPharm(String pharm) {
         this.pharm = pharm;
     }
@@ -61,6 +62,7 @@ public class Medicine {
         return group;
     }
 
+    @XmlElement(name = "group")
     public void setGroup(String group) {
         this.group = group;
     }
@@ -69,6 +71,7 @@ public class Medicine {
         return analogs;
     }
 
+    @XmlElementWrapper(name = "analogs")
     public void setAnalogs(List<String> analogs) {
         this.analogs = analogs;
     }
@@ -81,6 +84,7 @@ public class Medicine {
         return versions;
     }
 
+    @XmlElementWrapper(name = "versions")
     public void setVersions(List<Version> versions) {
         this.versions = versions;
     }

@@ -2,16 +2,18 @@ package Task.Medicine_Structure.Version.Company;
 
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name = "package")
 public class Package {
 
-    @XmlElement
+
     private String type;
 
-    @XmlElement
+
     private String amount;
 
-    @XmlElement
+
     private String price;
 
     public Package() {
@@ -28,6 +30,7 @@ public class Package {
         return type;
     }
 
+    @XmlElement(name = "type")
     public void setType(String type) {
         this.type = type;
     }
@@ -36,6 +39,7 @@ public class Package {
         return amount;
     }
 
+    @XmlElement(name = "items-amount")
     public void setAmount(String amount) {
         this.amount = amount;
     }
@@ -44,6 +48,7 @@ public class Package {
         return price;
     }
 
+    @XmlElement(name = "price")
     public void setPrice(String price) {
         this.price = price;
     }

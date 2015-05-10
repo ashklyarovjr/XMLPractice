@@ -2,13 +2,15 @@ package Task.Medicine_Structure.Version.Company;
 
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name = "dosage")
 public class Dosage {
 
-    @XmlElement
+
     private String amount;
 
-    @XmlElement
+
     private String period;
 
     public Dosage() {
@@ -24,6 +26,7 @@ public class Dosage {
         return amount;
     }
 
+    @XmlElement(name = "amount")
     public void setAmount(String amount) {
         this.amount = amount;
     }
@@ -32,6 +35,7 @@ public class Dosage {
         return period;
     }
 
+    @XmlElement(name = "period")
     public void setPeriod(String period) {
         this.period = period;
     }

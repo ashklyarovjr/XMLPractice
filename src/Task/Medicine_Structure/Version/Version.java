@@ -10,10 +10,10 @@ import java.util.List;
 
 @XmlRootElement
 public class Version {
-    @XmlElement
+
     String version;
 
-    @XmlElement
+
     List<Company> companies;
 
     public Version(String version) {
@@ -29,12 +29,12 @@ public class Version {
         return version;
     }
 
-
+    @XmlElement(name = "vname")
     public void setVersion(String version) {
         this.version = version;
     }
 
-
+    @XmlElementWrapper(name = "companies")
     public List<Company> getCompanies() {
         return companies;
     }

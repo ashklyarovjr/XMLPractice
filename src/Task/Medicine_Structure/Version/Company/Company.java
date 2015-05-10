@@ -5,16 +5,16 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+@XmlRootElement(name = "company")
 public class Company {
 
-    @XmlElement
+
     private Certificate certificate;
 
-    @XmlElement
+
     private Dosage dosage;
 
-    @XmlElement
+
     private Package aPackage;
 
     public Company() {
@@ -31,7 +31,7 @@ public class Company {
         return certificate;
     }
 
-
+    @XmlElement(name = "certificate")
     public void setCertificate(Certificate certificate) {
         this.certificate = certificate;
     }
@@ -40,6 +40,7 @@ public class Company {
         return dosage;
     }
 
+    @XmlElement(name = "dosage")
     public void setDosage(Dosage dosage) {
         this.dosage = dosage;
     }
@@ -48,6 +49,7 @@ public class Company {
         return aPackage;
     }
 
+    @XmlElement(name = "package")
     public void setaPackage(Package aPackage) {
         this.aPackage = aPackage;
     }

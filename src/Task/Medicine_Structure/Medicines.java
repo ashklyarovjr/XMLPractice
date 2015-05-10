@@ -1,8 +1,9 @@
 package Task.Medicine_Structure;
 
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.List;
 
 /**
@@ -39,7 +40,5 @@ public class Medicines {
         return "Medicines: " + "\n" + medicines;
     }
 
-    public Iterator<Medicine>  iterator() {
-        return getMedicines().iterator();
-    }
+
 }

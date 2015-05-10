@@ -1,21 +1,30 @@
-package Task;
+package Task.JSON;
 
-import Task.Medicine.Medicine;
-import Task.Medicine.Version.Company.Company;
-import Task.Medicine.Version.Version;
+import Task.AbstractMedBuilder;
+import Task.MedicineFactory;
+import Task.Medicine_Structure.Medicines;
+import Task.Medicine_Structure.Medicine;
+import Task.Medicine_Structure.Version.Company.Company;
+import Task.Medicine_Structure.Version.Version;
+import Task.Parsers.DOMParser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 
 
 public class JSONBuilder {
 
+
+    /**
+     * Parse Medicines into JSONArray
+     * @param medicines - object of Medicines class
+     * @return JSONArray
+     * */
     @SuppressWarnings("unchecked call")
-    public static JSONArray buildJSON (List<Medicine> list) {
+    public static JSONArray buildJSON (Medicines medicines) {
 
         JSONObject jsonMedicine;
         JSONObject jsonCertificate;
@@ -27,7 +36,10 @@ public class JSONBuilder {
 
         JSONArray jsonMedsArray = new JSONArray();
 
-        for (Medicine medicine : list) {
+        JSONObject jsonMedicines = new JSONObject();
+
+        int k = 1;
+        for (Medicine medicine : medicines.getMedicines()) {
 
             jsonMedicine = new JSONObject();
             jsonAnalogs = new JSONObject();
@@ -78,24 +90,42 @@ public class JSONBuilder {
                 jsonMedicine.put("version" + i, jsonVersion);
                 i++;
             }
-            jsonMedsArray.add(jsonMedicine);
+            jsonMedicines.put("medicine" + k, jsonMedicine);
+            jsonMedsArray.add(jsonMedicines);
+            k++;
         }
         return jsonMedsArray;
     }
 
-    public static void main(String[] args) throws IOException {
-        File file = new File("medicines.json");
-        FileWriter fw = null;
+
+    /**
+     * Method writes JSONArray to .json file
+     * @param filepath  - full path to the .json file
+     * @param jsonObject - JSONArray object
+     * */
+    public static void writeIntoJSONFile(String filepath, JSONArray jsonObject) throws IOException {
+        File file  =  new File(filepath);
+        FileWriter fileWriter = null;
         try {
-            fw = new FileWriter(file);
-            fw.write(buildJSON(JDOMParser.JDOMParse()).toJSONString());
+            fileWriter =  new FileWriter(file);
+            fileWriter.write(jsonObject.toJSONString());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (fw != null) {
-                fw.close();
+            if (fileWriter != null)  {
+                fileWriter.close();
             }
         }
+    }
+
+
+
+    public static void main(String[] args) throws IOException {
+        MedicineFactory factory = new MedicineFactory();
+
+        AbstractMedBuilder parser = factory.medsParser("SAX");
+
+        writeIntoJSONFile("medicines.json", buildJSON(parser.parse("myxml.xml")));
 
     }
 }

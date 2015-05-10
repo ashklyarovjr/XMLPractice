@@ -1,14 +1,19 @@
-package Task.Medicine.Version;
+package Task.Medicine_Structure.Version;
 
-import Task.Medicine.Version.Company.Company;
+import Task.Medicine_Structure.Version.Company.Company;
 
-import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.LinkedList;
 import java.util.List;
 
-
+@XmlRootElement
 public class Version {
+    @XmlElement
     String version;
+
+    @XmlElement
     List<Company> companies;
 
     public Version(String version) {
@@ -24,9 +29,11 @@ public class Version {
         return version;
     }
 
+
     public void setVersion(String version) {
         this.version = version;
     }
+
 
     public List<Company> getCompanies() {
         return companies;

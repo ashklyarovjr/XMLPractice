@@ -1,10 +1,12 @@
-package Task;
+package Task.Parsers;
 
 
-import Task.Medicine.Medicine;
-import Task.Medicine.Version.Company.*;
-import Task.Medicine.Version.Company.Package;
-import Task.Medicine.Version.Version;
+import Task.AbstractMedBuilder;
+import Task.Medicine_Structure.Medicine;
+import Task.Medicine_Structure.Medicines;
+import Task.Medicine_Structure.Version.Company.*;
+import Task.Medicine_Structure.Version.Company.Package;
+import Task.Medicine_Structure.Version.Version;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -17,12 +19,12 @@ import org.w3c.dom.Node;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
-public class DOMParser {
-    public static void main(String[] args) {
+public class DOMParser extends AbstractMedBuilder {
+    @Override
+    public Medicines parse(String fileName) {
         try {
-            File file = new File("myxml.xml");
+            File file = new File(fileName);
             DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = builderFactory.newDocumentBuilder();
             Document document = builder.parse(file);
@@ -96,7 +98,7 @@ public class DOMParser {
                             medicine.addVersion(version);
                         }
                     }
-                    System.out.println(medicine.toString());
+                    getMedicines().addMedicine(medicine);
                 }
 
             }
@@ -104,10 +106,10 @@ public class DOMParser {
         } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
         }
+        return getMedicines();
     }
-
-
 }
+
 
 
 

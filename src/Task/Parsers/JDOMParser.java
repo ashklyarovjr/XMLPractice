@@ -1,28 +1,30 @@
-package Task;
+package Task.Parsers;
 
-import Task.Medicine.Medicine;
-import Task.Medicine.Version.Company.Certificate;
-import Task.Medicine.Version.Company.Company;
-import Task.Medicine.Version.Company.Dosage;
-import Task.Medicine.Version.Company.Package;
-import Task.Medicine.Version.Version;
+import Task.AbstractMedBuilder;
+import Task.Medicine_Structure.Medicine;
+import Task.Medicine_Structure.Medicines;
+import Task.Medicine_Structure.Version.Company.Certificate;
+import Task.Medicine_Structure.Version.Company.Company;
+import Task.Medicine_Structure.Version.Company.Dosage;
+import Task.Medicine_Structure.Version.Company.Package;
+import Task.Medicine_Structure.Version.Version;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.jdom2.Document;
 
-public class JDOMParser {
+public class JDOMParser extends AbstractMedBuilder{
 
-    public static List<Medicine> JDOMParse() {
-        List<Medicine> medicines = new ArrayList<>();
+    @Override
+    public Medicines parse(String fileName) {
+
         SAXBuilder saxBuilder = new SAXBuilder();
-        File file = new File("myxml.xml");
+        File file = new File(fileName);
         try {
 
             Document document = saxBuilder.build(file);
@@ -31,8 +33,8 @@ public class JDOMParser {
             List listElement = element.getChildren("medicine");
 
             Medicine medicine;
-            for (int i = 0; i < listElement.size(); i++) {
-                Element node = (Element) listElement.get(i);
+            for (Object aListElement : listElement) {
+                Element node = (Element) aListElement;
 
                 String name = node.getChildText("name");
                 String pharm = node.getChildText("pharm");
@@ -41,13 +43,12 @@ public class JDOMParser {
                 medicine = new Medicine(name, pharm, group);
 
                 List<Element> analogs = node.getChild("analogs").getChildren("analog");
-                for (int j = 0; j < analogs.size(); j++) {
-                    Element node1 = analogs.get(j);
+                for (Element node1 : analogs) {
                     medicine.addAnalog(node1.getValue());
                 }
 
                 List<Element> versions = node.getChild("versions").getChildren("version");
-                for (Element element1 : versions ) {
+                for (Element element1 : versions) {
 
 
                     String versionName = element1.getChildText("vname");
@@ -69,7 +70,7 @@ public class JDOMParser {
                         dosage.setAmount(element2.getChild("dosage").getChildText("amount"));
                         dosage.setPeriod(element2.getChild("dosage").getChildText("period"));
 
-                        Task.Medicine.Version.Company.Package aPack = new Package();
+                        Package aPack = new Package();
                         aPack.setType(element2.getChild("package").getChildText("type"));
                         aPack.setAmount(element2.getChild("package").getChildText("items-amount"));
                         aPack.setPrice(element2.getChild("package").getChildText("price"));
@@ -84,12 +85,12 @@ public class JDOMParser {
 
                 }
                 System.out.println(medicine.toString());
-                medicines.add(medicine);
+                getMedicines().addMedicine(medicine);
             }
         } catch (JDOMException | IOException e1) {
             e1.printStackTrace();
         }
-    return medicines;
+        return getMedicines();
     }
 }
 

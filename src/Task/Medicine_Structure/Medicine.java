@@ -1,17 +1,30 @@
-package Task.Medicine;
+package Task.Medicine_Structure;
 
-import Task.Medicine.Version.Version;
+import Task.Medicine_Structure.Version.Version;
 
-import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlAnyElement;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.LinkedList;
 import java.util.List;
 
-
+@XmlRootElement(name = "medicine")
 public class Medicine {
+
+    @XmlElement
     private String name;
+
+    @XmlElement
     private String pharm;
+
+    @XmlElement
     private String group;
+
+    @XmlElementWrapper
     private List<String> analogs;
+
+    @XmlElementWrapper
     private List<Version> versions;
 
     public Medicine() {
@@ -30,6 +43,7 @@ public class Medicine {
     public String getName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;

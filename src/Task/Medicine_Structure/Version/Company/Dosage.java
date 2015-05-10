@@ -1,8 +1,14 @@
-package Task.Medicine.Version.Company;
+package Task.Medicine_Structure.Version.Company;
 
+
+import javax.xml.bind.annotation.XmlElement;
 
 public class Dosage {
+
+    @XmlElement
     private String amount;
+
+    @XmlElement
     private String period;
 
     public Dosage() {

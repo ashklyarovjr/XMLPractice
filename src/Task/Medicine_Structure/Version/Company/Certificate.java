@@ -1,9 +1,14 @@
-package Task.Medicine.Version.Company;
+package Task.Medicine_Structure.Version.Company;
 
+
+import javax.xml.bind.annotation.XmlElement;
 
 public class Certificate {
+    @XmlElement
     private int number;
+    @XmlElement
     private String expirationDate;
+    @XmlElement
     private String registrationCompany;
 
     public Certificate() {

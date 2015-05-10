@@ -1,9 +1,20 @@
-package Task.Medicine.Version.Company;
+package Task.Medicine_Structure.Version.Company;
 
+import javax.xml.bind.annotation.XmlAnyElement;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Company {
+
+    @XmlElement
     private Certificate certificate;
+
+    @XmlElement
     private Dosage dosage;
+
+    @XmlElement
     private Package aPackage;
 
     public Company() {
@@ -19,6 +30,7 @@ public class Company {
     public Certificate getCertificate() {
         return certificate;
     }
+
 
     public void setCertificate(Certificate certificate) {
         this.certificate = certificate;

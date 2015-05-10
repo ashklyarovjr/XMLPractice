@@ -1,15 +1,14 @@
-package Task;
+package Task.Parsers;
 
 
-import Task.Medicine.Medicine;
-import Task.Medicine.Version.Company.*;
-import Task.Medicine.Version.Version;
+import Task.Medicine_Structure.Medicine;
+import Task.Medicine_Structure.Medicines;
+import Task.Medicine_Structure.Version.Company.*;
+import Task.Medicine_Structure.Version.Version;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.util.ArrayList;
-import java.util.List;
-import Task.Medicine.Version.Company.Package;
+import Task.Medicine_Structure.Version.Company.Package;
 
 
 public class Handler extends DefaultHandler {
@@ -22,15 +21,15 @@ public class Handler extends DefaultHandler {
     private Package aPackage = null;
     String content = null;
 
-    private List<Medicine> medicines;
+    private Medicines XMLMedicines;
 
 
-    public List<Medicine> getMedicines() {
-        return medicines;
+    public Medicines getXMLMedicines() {
+        return XMLMedicines;
     }
 
-    public void setMedicines(List<Medicine> medicines) {
-        this.medicines = medicines;
+    public void setXMLMedicines(Medicines XMLMedicines) {
+        this.XMLMedicines = XMLMedicines;
     }
 
     public Medicine getMedicine() {
@@ -88,7 +87,7 @@ public class Handler extends DefaultHandler {
         switch (qName) {
             case "medicine":
                 setMedicine(new Medicine());
-                setMedicines(new ArrayList<>());
+                setXMLMedicines(new Medicines());
                 break;
             case "version":
                 setVersion(new Version());
@@ -111,7 +110,7 @@ public class Handler extends DefaultHandler {
     public void endElement(String uri, String localName, String qName) {
         switch (qName) {
             case "medicine":
-                getMedicines().add(getMedicine());
+                getXMLMedicines().getMedicines().add(getMedicine());
                 break;
             case "version":
                 getMedicine().addVersion(getVersion());
@@ -136,6 +135,9 @@ public class Handler extends DefaultHandler {
                 break;
             case "group":
                 getMedicine().setGroup(content);
+                break;
+            case "pharm":
+                getMedicine().setPharm(content);
                 break;
             case "vname":
                 getVersion().setVersion(content);
@@ -165,7 +167,7 @@ public class Handler extends DefaultHandler {
                 getaPackage().setPrice(content);
                 break;
             case "medicines":
-                System.out.println(getMedicines());
+                System.out.println(getXMLMedicines());
         }
     }
 

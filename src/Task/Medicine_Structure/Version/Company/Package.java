@@ -1,9 +1,17 @@
-package Task.Medicine.Version.Company;
+package Task.Medicine_Structure.Version.Company;
 
+
+import javax.xml.bind.annotation.XmlElement;
 
 public class Package {
+
+    @XmlElement
     private String type;
+
+    @XmlElement
     private String amount;
+
+    @XmlElement
     private String price;
 
     public Package() {
